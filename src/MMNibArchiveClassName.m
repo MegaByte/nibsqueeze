@@ -67,7 +67,7 @@
 
 #ifndef NDEBUG
 - (NSString *)debugDescription {
-	return [NSString stringWithFormat:@"<%@ %p, name=%@>", NSStringFromClass([self class]), self, self.nameString];
+	return [NSString stringWithFormat:@"<%@ %p, name=%@>", NSStringFromClass([self class]), (void *)self, self.nameString];
 }
 #endif
 

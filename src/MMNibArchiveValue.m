@@ -129,7 +129,7 @@
 
 #ifndef NDEBUG
 - (NSString *)debugDescription {
-	return [NSString stringWithFormat:@"<%@ %p, t=%jd, kI=%ju>", NSStringFromClass([self class]), self, (intmax_t)m_type, (uintmax_t)m_keyIndex];
+	return [NSString stringWithFormat:@"<%@ %p, t=%jd, kI=%ju>", NSStringFromClass([self class]), (void *)self, (intmax_t)m_type, (uintmax_t)m_keyIndex];
 }
 #endif
 

@@ -52,7 +52,7 @@
 
 #ifndef NDEBUG
 - (NSString *)debugDescription {
-	return [NSString stringWithFormat:@"<%@ %p, class=%jd, values=%@>", NSStringFromClass([self class]), self, (intmax_t)m_classNameIndex, NSStringFromRange(m_valuesRange)];
+	return [NSString stringWithFormat:@"<%@ %p, class=%jd, values=%@>", NSStringFromClass([self class]), (void *)self, (intmax_t)m_classNameIndex, NSStringFromRange(m_valuesRange)];
 }
 #endif
 
