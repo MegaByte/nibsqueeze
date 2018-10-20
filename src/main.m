@@ -610,8 +610,14 @@ int main(int argc, char **argv) {
 							NSError *nibParseError = nil;
 							MMNibArchive *archive = MM_autorelease([[MMNibArchive alloc] initWithData:container.originalData error:&nibParseError]);
 							if (archive) {
-								archive = smallerNibArchiveForOptions(archive, settings);
 								NSData *archiveData = archive.data;
+								NSUInteger archiveLength;
+								do {
+									archiveLength = [archiveData length];
+									archive = smallerNibArchiveForOptions(archive, settings);
+									archiveData = archive.data;
+								}
+								while ([archiveData length] < archiveLength);
 
 								if ([archiveData length] < [nibData length]) {
 									container.updatedData = archiveData;
