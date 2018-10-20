@@ -387,7 +387,7 @@ MMNibArchive * MergeValues(MMNibArchive *archive) {
 						NSUInteger const oldObjectIndex = [[cluster anyObject] unsignedIntegerValue];
 						MMNibArchiveObject *oldObject = [oldObjects objectAtIndex:oldObjectIndex];
 						NSArray *values = [oldValues subarrayWithRange:oldObject.valuesRange];
-						MMNibArchiveObject *object = [[MMNibArchiveObject alloc] initWithClassNameIndex:oldObject.classNameIndex valuesRange:NSMakeRange(valuesIndexOffset, values.count)];
+						MMNibArchiveObject *object = [[MMNibArchiveObject alloc] initWithClassNameIndex:oldObject.classNameIndex valuesRange:NSMakeRange(oldObject.valuesRange.length == 0 ? 0 : valuesIndexOffset, values.count)];
 						NSUInteger const newObjectIndex = objectsIndexOffset;
 						indexTranslationTable[oldObjectIndex] = newObjectIndex;
 						[newObjects addObject:object];
